@@ -1,0 +1,29 @@
+groups:
+- name: SLO.rules
+  rules:
+  - alert: ServiceAvailabilityBelowSLO
+    expr: service_availability_percent < 99
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Service availability below 99%"
+      description: "Current availability is {{ $value }}%"
+
+  - alert: ServiceErrorRateAboveSLO
+    expr: service_error_rate > 0.01
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Service error rate above 1%"
+      description: "Current error rate is {{ $value }}"
+
+  - alert: ServiceP95LatencyAboveSLO
+    expr: service_p95_response_time_seconds > 1
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "P95 latency above 1s"
+      description: "P95 latency is {{ $value }}"

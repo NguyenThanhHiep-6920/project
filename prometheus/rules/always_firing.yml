@@ -1,0 +1,11 @@
+groups:
+- name: AlwaysFiring.rules
+  rules:
+  - alert: AlwaysFiring
+    expr: vector(1)
+    for: 10s
+    labels:
+      severity: critical
+    annotations:
+      summary: "This is a test always firing alert"
+      description: "This alert is always firing for testing purpose"

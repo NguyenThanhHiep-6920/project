@@ -6,7 +6,8 @@ async def resolve_hello(_, info):
     """
     Resolver đơn giản trả về "Hello, world!"
     """
-    return "Hello, world!"
+    #return "Hello, world!"
+    raise ValueError("Simulated runtime error for testing")
 
 @gql_metrics_decorator
 async def resolve_get_users(_, info):
